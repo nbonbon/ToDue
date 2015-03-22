@@ -80,4 +80,9 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+
+  .footer ul li {
+    display: inline;
+    padding: 25px 10px;
+  }
 }
