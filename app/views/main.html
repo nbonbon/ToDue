@@ -1,0 +1,40 @@
+<div class="container well well-lg" ng-controller="MainController">
+  <h2>My Todos</h2>
+
+  <!-- Todos input -->
+  <div id="AddTaskContainer">  
+    <form role="form" ng-submit="addTodo()">
+      <div class="row">
+        <div class="input-group">
+          <input class="form-control" type="text" ng-model="todo" placeholder="What needs to be done?">
+          <span class="input-group-btn">
+            <input type="submit" class="btn btn-success" value="+">
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <br />
+
+  <!-- Todos list -->
+  <div id="TaskContainer" class="panel panel-default">
+    <table class="table table-striped table-bordered">
+     <!--  <thead>
+          <tr>
+              <th>Description</th>
+          </tr>
+      </thead> -->
+      <tbody ui-sortable ng-model="todos">
+        <tr ng-repeat="todo in todos" style="cursor: move;">
+          <td>
+            <span>
+              {{ todo }}
+              <button class="btn btn-danger pull-right" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
