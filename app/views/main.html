@@ -28,9 +28,10 @@
       <tbody ui-sortable ng-model="todos">
         <tr ng-repeat="todo in todos" style="cursor: move;">
           <td>
-            <span>
               {{ todo }}
-              <button class="btn btn-danger pull-right" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+            <span class="pull-right">
+              <button class="btn btn-success" ng-click="taskCompleted($index)">&#10003;</button>
+              <button class="btn btn-danger" ng-click="removeTodo($index)">X</button>
             </span>
           </td>
         </tr>

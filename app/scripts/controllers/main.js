@@ -21,4 +21,9 @@ angular.module('toDueApp')
     {
     	$scope.todos.splice(index, 1);
     };
+
+    $scope.taskCompleted = function(index)
+    {
+        // $scope.todos.
+    };
   });
