@@ -9,21 +9,48 @@
  */
 angular.module('toDueApp')
   .controller('MainController', function ($scope) {
-    $scope.todos = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
     $scope.addTodo = function()
     {
-    	$scope.todos.push($scope.todo);
+    	$scope.data.todos.push($scope.todo);
     	$scope.todo = '';
     };
 
     $scope.removeTodo = function(index)
     {
-    	$scope.todos.splice(index, 1);
+    	$scope.data.todos.splice(index, 1);
     };
 
     $scope.taskCompleted = function(index)
     {
         // $scope.todos.
     };
+
+    // function Todo(description)
+    // {
+    //     this.id = new Random();
+    //     this.description = description;
+    //     this.isActive = true;
+    //     this.creationTime = new Date();
+
+    //     completeTodo:function()
+    //     {
+    //         this.finishTime = new Date();
+    //         this.isActive = false;
+    //     };
+    // };
+
+    // function TodoList()
+    // {
+    //     this.list = new Array();
+
+    //     addTodo:function(description)
+    //     {
+    //         // Create new todo item with the description and assign its status to false
+    //         var newToDo = new ToDo(description);
+    //         this.list.push(newToDo);
+    //     };
+
+    //     removeTodo:function()
+    // };
   });

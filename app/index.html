@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="toDueApp">
+  <body data-ng-app="toDueApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -41,7 +41,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="padding-right: 10px;">
-              <li><a ng-href="#/Account"><img src="images/cog-icon.png"></a></li>
+              <li><a data-ng-href="#/Account"><img src="images/cog-icon.png"></a></li>
               <!-- <li><span class="glyphicon glyphicon-cog"></span></li> -->
             </ul>
           </div>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="well well-lg">
-    <div ng-view=""></div>
+    <div data-ng-view=""></div>
     </div>
 
     <div class="footer">
@@ -97,6 +97,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/todos.js"></script>
         <!-- endbuild -->
 </body>
 </html>
