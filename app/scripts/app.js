@@ -18,10 +18,10 @@ angular
     'ngTouch',
     'ui.sortable'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/main2.html',
         controller: 'MainController'
       })
       .when('/about', {
@@ -35,4 +35,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);

@@ -8,9 +8,10 @@
  * Controller of the toDueApp
  */
 angular.module('toDueApp')
-  .controller('MainController', function ($scope) {
+  .controller('MainController', ['$scope', 'todo2', function ($scope, todo2) {
 
-    $scope.addTodo = function()
+
+   /* $scope.addTodo = function()
     {
     	$scope.data.todos.push($scope.todo);
     	$scope.todo = '';
@@ -24,7 +25,13 @@ angular.module('toDueApp')
     $scope.taskCompleted = function(index)
     {
         // $scope.todos.
-    };
+    };*/
+
+    todo2.success(function(data){
+        $scope.todos = data;
+    });
+
+
 
     // function Todo(description)
     // {
@@ -53,4 +60,4 @@ angular.module('toDueApp')
 
     //     removeTodo:function()
     // };
-  });
+  }]);
