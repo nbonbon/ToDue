@@ -14,7 +14,7 @@ angular.module('toDueApp')
 
     service.getTasks = function() {
     	var result = 
-    	$http.get(dataURL) // NEED TO FIX: Why won't it get datURL
+    	$http.get(dataURL)
         .success(function (data) {
             result.data = data;
             return result;
