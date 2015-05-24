@@ -13,26 +13,28 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.sortable'
+    'ui.sortable',
+    'ui.router'
   ])
-  .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainController'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutController'
-      })
-      .when('/contact', {
-        templateUrl: 'views/contact.html',
-        controller: 'AboutController'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+      $urlRouterProvider.otherwise('/');
+
+      $stateProvider
+        .state('main', {
+          url: '/',
+          templateUrl: 'views/main.html',
+          controller: 'MainController'
+        })
+        .state('about', {
+          url: '/about',
+          templateUrl: 'views/about.html',
+          controller: 'AboutController'
+        })
+        .state('contact', {
+          url: '/contact',
+          templateUrl: 'views/contact.html',
+          controller: 'AboutController'
+        })
   }]);
