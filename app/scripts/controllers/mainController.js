@@ -32,5 +32,13 @@ angular.module('toDueApp')
             $scope.data.tasks.splice(index, 1);
         });
     };
+
+    $scope.taskStatusUpdate = function(task) {
+        //TODO: Create this
+        TaskService.updateTaskStatus(taskID, !task.status)
+        .then(function(){
+            task.status = !task.status;
+        });
+    };
     
   }]);

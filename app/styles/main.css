@@ -85,4 +85,8 @@ body {
     display: inline;
     padding: 25px 10px;
   }
+
+  a.accordion-toggle {
+    outline: none;
+  }
 }
