@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name toDueApp
- * @description
- * # toDueApp
- *
- * Main module of the application.
- */
 angular
   .module('toDueApp', [
     'ngAnimate',
@@ -17,10 +9,10 @@ angular
     'ngTouch',
     'ui.sortable',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'firebase'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-      $urlRouterProvider.otherwise('/');
 
       $stateProvider
         .state('main', {
@@ -38,4 +30,16 @@ angular
           templateUrl: 'views/contact.html',
           controller: 'AboutController'
         })
+        .state('login', {
+          url: '/login',
+          templateUrl: 'views/login.html',
+          controller: 'SessionController'
+        })
+        .state('register', {
+          url: '/register',
+          templateUrl: 'views/register.html',
+          controller: 'SessionController'
+        });
+
+        $urlRouterProvider.otherwise('/');
   }]);

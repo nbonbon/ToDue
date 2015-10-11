@@ -1,44 +1,47 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name toDueApp.controller:MainController
- * @description
- * # MainController
- * Controller of the toDueApp
- */
 angular.module('toDueApp')
-  .controller('MainController', ['$scope', 'TaskService', function ($scope, TaskService) {
+.controller('MainController', ['$scope', 'TaskService', function ($scope, TaskService) {
     $scope.data = {};
 
-    TaskService.getTasks().then(function(response){
-        $scope.data.tasks = response.data;
-        $scope.data.error = response.error;
-    });
-
+    $scope.data.tasks = TaskService.getTasks();
+    
     $scope.addTask = function (task) {
-        TaskService.addTask(task.title)
-        .then(function(newTask){
-            $scope.data.tasks.push(newTask.data);
-        });
+        task.status = true;
 
-        task.title = "";
-        task = undefined;
-    };
-
-    $scope.removeTask = function (taskID, index) {
-         TaskService.removeTask(taskID)
-        .then(function(){
-            $scope.data.tasks.splice(index, 1);
+        TaskService.addTask(task)
+        .then(function() {
+            task.title = '';
+            task = undefined;
+        }, function(error) {
+            console.log('addTask Failed!', error);
+            $scope.error = error;
         });
     };
 
-    $scope.taskStatusUpdate = function(task) {
-        //TODO: Create this
-        TaskService.updateTaskStatus(taskID, !task.status)
-        .then(function(){
-            task.status = !task.status;
+    $scope.removeTask = function (task) {
+        TaskService.removeTask(task)
+        .then(function() {
+            $scope.message = 'Task Removed!';
+        }, function(error) {
+            console.log('removeTask Failed!', error);
+            $scope.error = error;
         });
+    };
+
+    $scope.updateTask = function(task) {
+        TaskService.updateTask(task)
+        .then(function() {
+            $scope.message = 'Task Updated!';
+        }, function(error) {
+            console.log('updateTask Failed!', error);
+            $scope.error = error;
+        });
+    };
+
+    $scope.toggleStatus = function(task) {
+        task.status = !task.status;
+        $scope.updateTask(task);
     };
     
   }]);

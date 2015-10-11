@@ -1,13 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name toDueApp.controller:AboutController
- * @description
- * # AboutController
- * Controller of the toDueApp
- */
 angular.module('toDueApp')
-  .controller('AboutController', function ($scope) {
-    
-  });
+ .controller('AboutController', ['$scope', function ($scope) {
+    $scope.message = 'About Controller'; // Placeholder to make jshint happy
+ }]);
