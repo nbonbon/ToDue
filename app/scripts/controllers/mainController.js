@@ -43,5 +43,4 @@ angular.module('toDueApp')
         task.status = !task.status;
         $scope.updateTask(task);
     };
-    
 }]);

@@ -10,7 +10,8 @@ angular
     'ui.sortable',
     'ui.router',
     'ui.bootstrap',
-    'firebase'
+    'firebase',
+    'ngMessages'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $stateProvider
