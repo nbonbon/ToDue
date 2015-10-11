@@ -3,6 +3,10 @@
 angular.module('toDueApp')
 .controller('SessionController', ['$scope', '$rootScope', '$location', 'AuthService', function ($scope, $rootScope, $location, AuthService) {
     
+    if(AuthService.getAuthState()) {
+    	$location.path('/');
+    }
+
 	$scope.login = function() {
 		AuthService.login($scope.user)
 		.then(function(authData) {

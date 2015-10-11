@@ -2,13 +2,21 @@
 
 angular.module('toDueApp')
 .constant('appDataURL', 'https://todue.firebaseio.com/')
-.factory('AuthService', ['$firebaseAuth', 'appDataURL', function($firebaseAuth, appDataURL){
+.factory('AuthService', ['$firebaseAuth', '$rootScope', 'appDataURL', function($firebaseAuth, $rootScope, appDataURL){
     var ref = new Firebase(appDataURL);
     var authObj = $firebaseAuth(ref);
 
-    return {
-    	authObj.$onAuth(onAuthStateChange(authData));
+	authObj.$onAuth(function(authData) {
+		if (authData) {
+			$rootScope.loggedIn = true;
+		 	console.log('Logged in as:', authData.uid);
+		} else {
+			$rootScope.loggedIn = false;
+		 	console.log('Logged out');
+		}
+	});
 
+    return {
     	login: function(user) {
     		return authObj.$authWithPassword({
 				email: user.email,
@@ -34,12 +42,20 @@ angular.module('toDueApp')
 		    });
     	},
 
-    	onAuthStateChange: function(authData) {
-    		if(authData) {
-    			$rootScope.loggedIn = true;
-    		} else {
-    			$rootScope.loggedIn = false;
-    		}
+    	getAuthState: function() {
+    		var authData = authObj.$getAuth();
+
+			if (authData) {
+			 	console.log('Logged in as:', authData.uid);
+			 	return true;
+			} else {
+			 	console.log('Logged out');
+			 	return false;
+			}
+    	},
+
+    	requireAuth: function() {
+    		return authObj.$requireAuth();
     	}
     };
 }]);

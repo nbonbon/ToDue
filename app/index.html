@@ -42,10 +42,14 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="padding-right: 10px;">
-              <li>
-                <a data-ng-href="#/Account">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="images/cog-icon.png">
                 </a>
+                <ul class="dropdown-menu" ng-controller="SessionController">
+                  <li><a href="#/Account">Account</a></li>
+                  <li><a class="btn btn-warning" href="#" ng-click="logout()">Logout</a></li>
+                </ul>
               </li>
               <!-- <li><span class="glyphicon glyphicon-cog"></span></li> -->
             </ul>

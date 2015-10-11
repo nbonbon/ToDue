@@ -44,4 +44,4 @@ angular.module('toDueApp')
         $scope.updateTask(task);
     };
     
-  }]);
+}]);
