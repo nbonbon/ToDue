@@ -1,27 +1,27 @@
 <div class="container auth-form">
-  <form name="loginForm" class="form-horizontal" ng-submit="login()" novalidate>
-    <div class="form-group" ng-class="{ 'has-error': loginForm.email.$invalid && !loginForm.email.$pristine, 'has-success': loginForm.email.$valid && !loginForm.email.$pristine }">
+  <form name="loginForm" class="form-horizontal" data-ng-submit="login()" novalidate>
+    <div class="form-group" data-ng-class="{ 'has-error': loginForm.email.$invalid && !loginForm.email.$pristine, 'has-success': loginForm.email.$valid && !loginForm.email.$pristine }">
       <label for="email" class="col-sm-2 control-label">Email</label>
       <div class="col-sm-10">
-        <input type="email" name="email" class="form-control" id="email" ng-model="user.email" placeholder="Email" required>
-         <div class="alert alert-danger" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched && loginForm.email.$invalid">
-            <div ng-messages-include="views/ngMessageTemplates/emailMessages.html"></div>
+        <input type="email" name="email" class="form-control" id="email" data-ng-model="user.email" placeholder="Email" required>
+         <div class="alert alert-danger" data-ng-messages="loginForm.email.$error" data-ng-show="loginForm.email.$touched && loginForm.email.$invalid">
+            <div data-ng-messages-include="views/ngMessageTemplates/emailMessages.html"></div>
         </div>
       </div>
     </div>
-    <div class="form-group" ng-class="{ 'has-error': loginForm.password.$invalid && !loginForm.password.$pristine, 'has-success': loginForm.password.$valid && !loginForm.password.$pristine }">
+    <div class="form-group" data-ng-class="{ 'has-error': loginForm.password.$invalid && !loginForm.password.$pristine, 'has-success': loginForm.password.$valid && !loginForm.password.$pristine }">
       <label for="password" class="col-sm-2 control-label">Password</label>
       <div class="col-sm-10">
-        <input type="password" name="password" class="form-control" id="password" ng-model="user.password" placeholder="Password" required>
-        <div class="alert alert-danger" ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched && loginForm.password.$invalid">
-            <div ng-message="required">Password is required</div>
+        <input type="password" name="password" class="form-control" id="password" data-ng-model="user.password" placeholder="Password" required>
+        <div class="alert alert-danger" data-ng-messages="loginForm.password.$error" data-ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+            <div data-ng-message="required">Password is required</div>
         </div>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary" ng-click="login()" ng-disabled="loginForm.$invalid">Login</button>
-        <a style="padding-left: 10px;" ng-href="#/register">Sign Up!</a>
+        <button type="submit" class="btn btn-primary" data-ng-click="login()" data-ng-disabled="loginForm.$invalid">Login</button>
+        <a style="padding-left: 10px;" data-ng-href="#/register">Sign Up!</a>
       </div>
     </div>
   </form>

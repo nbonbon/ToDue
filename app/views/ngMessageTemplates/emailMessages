@@ -1,0 +1,2 @@
+<p data-ng-message="required">Email is required</p>
+<p data-ng-message="email">Email format is invalid</p>
