@@ -9,10 +9,8 @@ angular.module('toDueApp')
 	authObj.$onAuth(function(authData) {
 		if (authData) {
 			$rootScope.loggedIn = true;
-		 	console.log('Logged in as:', authData.uid);
 		} else {
 			$rootScope.loggedIn = false;
-		 	console.log('Logged out');
 		}
 	});
 
@@ -46,10 +44,8 @@ angular.module('toDueApp')
     		var authData = authObj.$getAuth();
 
 			if (authData) {
-			 	console.log('Logged in as:', authData.uid);
 			 	return true;
 			} else {
-			 	console.log('Logged out');
 			 	return false;
 			}
     	},

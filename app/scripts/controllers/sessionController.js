@@ -10,12 +10,15 @@ angular.module('toDueApp')
 	$scope.login = function() {
 		AuthService.login($scope.user)
 		.then(function(authData) {
-			console.log('Authenticated successfully with payload:', authData);
 			$scope.clearUserFields();
 			$location.path('/');
 		}, function(error) {
-			console.log('Login Failed!', error);
-			$scope.error = error;
+			if(error.code === 'NETWORK_ERROR')
+			{
+				$scope.error = "Error connecting to authentication server. Try Again.";
+			} else {
+				$scope.error = "Invalid username/password combination."
+			}
 		});
 	};
 

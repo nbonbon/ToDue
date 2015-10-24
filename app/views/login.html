@@ -1,4 +1,7 @@
 <div class="container auth-form">
+  <div class="alert alert-danger" data-ng-show="error">
+      <div>{{ error }}</div>
+  </div>
   <form name="loginForm" class="form-horizontal" data-ng-submit="login()" novalidate>
     <div class="form-group" data-ng-class="{ 'has-error': loginForm.email.$invalid && !loginForm.email.$pristine, 'has-success': loginForm.email.$valid && !loginForm.email.$pristine }">
       <label for="email" class="col-sm-2 control-label">Email</label>
